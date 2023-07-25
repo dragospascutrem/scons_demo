@@ -1,0 +1,16 @@
+
+The `SConstruct` file is a script written in Python that's used by SCons, a software construction tool, to automate the process of building software, similar to how Makefiles are used with `make`. In the context of your project, the `SConstruct` file sets up the build process for a Cadence-based design flow.
+
+Here's a high-level summary of what the `SConstruct` file does:
+
+1. **Checks SCons Version**: It ensures that the version of SCons being used is at least 3.0.
+
+2. **Sets Up Environment**: It creates a new construction environment and sets it up for Cadence's xrun tool. The environment includes various construction variables, such as the path to the xrun tool, the working directory, and command-line arguments for xrun.
+
+3. **Defines Build Targets**: It defines build targets for different steps of the build process. Each target corresponds to a particular step of the design flow and specifies the source files and command-line options for that step. The targets defined are `sim_rtl`, `sim_cell`, and `sim_inst`, which likely correspond to simulating the design at the RTL, cell, and instance levels, respectively.
+
+4. **Sets Up Aliases**: It sets up aliases for the build targets. This allows you to build a target using a simpler command. For example, you can build the `sim_rtl` target by running the command `scons sim_rtl`.
+
+5. **Sets Up Cleanup Operations**: It sets up additional cleanup operations that are performed when the `scons -c` command is run. This removes any temporary files that were created during the build process.
+
+Overall, the `SConstruct` file automates the build process for your project, allowing you to compile and simulate your design with a single command. It uses the Cadence xrun tool for compilation and simulation, and it's set up to handle different levels of design abstraction (RTL, cell, instance).
